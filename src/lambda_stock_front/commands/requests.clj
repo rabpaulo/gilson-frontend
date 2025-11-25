@@ -1,18 +1,20 @@
 (ns lambda-stock-front.commands.requests
-  (:require [lambda-stock-front.util.http :as http]
-            [lambda-stock-front.util.inputs :as input]))
+  (:require [lambda-stock-front.util.http :as http]))
 
-(defn show-stock[]
-  (let 
-    [ticker (input/ask "Ticker da ação: ")
-    resp (http/GET (str "/stocks/" ticker))]
-    (println resp)))
+(defn stock[ticker]
+  (let  [resp (http/GET (str "/stocks/" ticker))]
+    resp))
 
-(defn show-balance[]
-  (println (http/GET "/wallet/balance"))
+(defn balance[]
+  (http/GET "/wallet/balance")
   )
 
-;; TODO
-(defn register-buy[])
-(defn register-sell[])
-(defn show-statement[])
+(defn statement[start end]
+  (http/GET (str "/trades/statement?start=" start "&end=" end)))
+
+(defn buy[ticker qtd]
+  (http/POST (str "/stocks/buy" ticker) qtd))
+  
+(defn sell[ticker qtd]
+  (http/POST (str "/stocks/sell" ticker) qtd))
+  
