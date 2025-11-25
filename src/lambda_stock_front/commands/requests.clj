@@ -11,3 +11,8 @@
 (defn show-balance[]
   (println (http/GET "/wallet/balance"))
   )
+
+;; TODO
+(defn register-buy[])
+(defn register-sell[])
+(defn show-statement[])

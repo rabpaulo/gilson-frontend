@@ -1,17 +1,13 @@
-(ns lambda-stock-front.util.cli)
-
-(defn sla[]
-  (println "funcionou")
+(ns lambda-stock-front.util.cli
+  (:require [lambda-stock-front.commands.requests :as requests])
   )
-;;(def menu
-;;  {"1" stocks/show-stock
-;;   "2" trades/register-buy
-;;   "3" trades/register-sell
-;;   "4" trades/show-statement
-;;   "5" wallet/show-balance})
-(def menu 
-  {"1" sla
-  "2" sla})
+
+(def menu
+  {"1" requests/show-stock
+   "2" requests/register-buy
+   "3" requests/register-sell
+   "4" requests/show-statement
+   "5" requests/show-balance})
 
 (defn start []
     (println "\n1. Consultar ação")

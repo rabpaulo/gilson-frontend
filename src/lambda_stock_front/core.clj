@@ -1,5 +1,5 @@
 (ns lambda-stock-front.core
-  (:require [lambda-stock-front.cli :as cli])
+  (:require [lambda-stock-front.util.cli :as cli])
   )
 
 (defn -main [& _]
